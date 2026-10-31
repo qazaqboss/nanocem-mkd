@@ -1733,8 +1733,8 @@ function init3d() {
   function verdict() {
     apv.textContent = aper + " мкм";
     const gOk = aper >= 3 * D95.G, nOk = aper >= 3 * D95.N;
-    vG.className = "verdict " + (gOk ? "good" : "bad"); vG.textContent = "Цемент G: " + (gOk ? "проходит" : "мост у входа, щель пустая") + " (нужно ≥ " + 3 * D95.G + " мкм)";
-    vN.className = "verdict " + (nOk ? "good" : "bad"); vN.textContent = "NanoCem: " + (nOk ? "заполняет щель" : "раскрытие слишком мало") + " (нужно ≥ " + 3 * D95.N + " мкм)";
+    vG.className = "verdict " + (gOk ? "good" : "bad"); vG.textContent = "Цемент G: " + (gOk ? "проходит" : "мост у входа, щель пустая") + " · заходит в щели от " + 3 * D95.G + " мкм (3 × D95 = 3 × " + D95.G + ")";
+    vN.className = "verdict " + (nOk ? "good" : "bad"); vN.textContent = "NanoCem: " + (nOk ? "заполняет щель" : "раскрытие слишком мало") + " · заходит в щели от " + 3 * D95.N + " мкм (3 × D95 = 3 × " + D95.N + ")";
   }
   ap.addEventListener("input", () => { aper = +ap.value; verdict(); parts.forEach((ps) => ps.forEach((p) => { p.x = Math.random() * W * 0.28; p.stuck = false; })); });
   verdict();
